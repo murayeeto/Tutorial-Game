@@ -16,14 +16,6 @@ region = Rect2(0, 240, 48, 48)
 atlas = ExtResource("1_onrkg")
 region = Rect2(48, 240, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("1_onrkg")
-region = Rect2(0, 192, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("1_onrkg")
-region = Rect2(48, 192, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("1_onrkg")
 region = Rect2(0, 288, 48, 48)
@@ -39,6 +31,14 @@ region = Rect2(0, 336, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
 atlas = ExtResource("1_onrkg")
 region = Rect2(48, 336, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(48, 192, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
 atlas = ExtResource("2_i3pqv")
@@ -183,17 +183,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ghd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvl01")
-}],
-"loop": false,
-"name": &"Chopping_front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_2hs0m")
 }, {
 "duration": 1.0,
@@ -212,6 +201,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"Chopping_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}],
+"loop": false,
+"name": &"Choppng_front",
 "speed": 5.0
 }, {
 "frames": [{
@@ -400,7 +400,7 @@ current_tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qwsg1")
-animation = &"Chopping_back"
+animation = &"Choppng_front"
 autoplay = "Idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

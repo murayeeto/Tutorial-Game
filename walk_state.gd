@@ -30,6 +30,9 @@ func _on_physics_process(_delta : float) -> void:
 func _on_next_transitions() -> void:
 	if !GameInputEvents.is_movement_input():
 		transition.emit("Idle")
+	
+	if player.current_tool == DataTypes.Tools.AxeWood && GameInputEvents.use_tool():
+		transition.emit("Chopping")
 
 
 
