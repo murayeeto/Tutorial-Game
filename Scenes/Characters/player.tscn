@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://d0gv3kirguj37"]
+[gd_scene load_steps=52 format=3 uid="uid://d0gv3kirguj37"]
 
 [ext_resource type="Script" uid="uid://ds5ifa3utewbl" path="res://Scenes/Characters/player.gd" id="1_khnq4"]
 [ext_resource type="Texture2D" uid="uid://yudefs1kkwao" path="res://Assets/Characters/Basic Charakter Actions.png" id="1_onrkg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ce4sybcmcnh27" path="res://walk_state.gd" id="5_cqrjx"]
 [ext_resource type="Script" uid="uid://chfsivgjolo" path="res://chopping_state.gd" id="7_utp2y"]
 [ext_resource type="Script" uid="uid://drivvti57svcu" path="res://tilling_state.gd" id="8_gdgf0"]
+[ext_resource type="Script" uid="uid://d0hxvss15lthm" path="res://watering_state.gd" id="9_xo8ps"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
 atlas = ExtResource("1_onrkg")
@@ -354,7 +355,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_khis8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Water_back",
 "speed": 5.0
 }, {
@@ -365,7 +366,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pgbbb")
 }],
-"loop": true,
+"loop": false,
 "name": &"Water_left",
 "speed": 5.0
 }, {
@@ -376,7 +377,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ny14h")
 }],
-"loop": true,
+"loop": false,
 "name": &"Water_right",
 "speed": 5.0
 }, {
@@ -387,7 +388,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3iwfv")
 }],
-"loop": true,
+"loop": false,
 "name": &"Watering_front",
 "speed": 5.0
 }]
@@ -400,7 +401,7 @@ script = ExtResource("1_khnq4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qwsg1")
-animation = &"Tilling_back"
+animation = &"Watering_front"
 autoplay = "Idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -427,5 +428,10 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="Tilling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("8_gdgf0")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("9_xo8ps")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
