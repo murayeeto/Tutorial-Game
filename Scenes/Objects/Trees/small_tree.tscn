@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp50n7ga3e5c2"]
+
+[ext_resource type="Texture2D" uid="uid://b5gyehgq1bdpb" path="res://Assets/Objects/Basic_Grass_Biom_things.png" id="1_ld6ex"]
+[ext_resource type="Script" uid="uid://2ssmsvh0i0j6" path="res://Scenes/Objects/Trees/small_tree.gd" id="1_qfrtl"]
+[ext_resource type="PackedScene" uid="uid://5jjtl8wd2lv3" path="res://Scenes/Components/damage_component.tscn" id="3_doyci"]
+[ext_resource type="PackedScene" uid="uid://cy7das2uux3qc" path="res://Scenes/Components/hurt_comp.tscn" id="4_dlvvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a0bc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcdd5"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3esef"]
+size = Vector2(10, 24)
+
+[node name="SmallTree" type="Sprite2D"]
+texture = SubResource("AtlasTexture_0a0bc")
+script = ExtResource("1_qfrtl")
+
+[node name="BasicGrassBiomThings" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("1_ld6ex")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_mcdd5")
+
+[node name="Damage_Component" parent="." instance=ExtResource("3_doyci")]
+max_damage = 3
+
+[node name="HurtComp" parent="." instance=ExtResource("4_dlvvk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComp"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_3esef")
