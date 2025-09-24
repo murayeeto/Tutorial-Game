@@ -394,9 +394,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1xqrm"]
-radius = 8.0
+radius = 4.12311
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_khnq4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -405,6 +406,7 @@ animation = &"Watering_front"
 autoplay = "Idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_1xqrm")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
